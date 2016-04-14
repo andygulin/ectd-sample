@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>etcd.sample</groupId>
+	<artifactId>ectd-sample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>ectd-sample</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<compile.level>1.7</compile.level>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<junit.version>4.12</junit.version>
+		<etcd4j.version>2.10.0</etcd4j.version>
+
+		<maven-compiler-plugin.version>3.5</maven-compiler-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mousio</groupId>
+			<artifactId>etcd4j</artifactId>
+			<version>${etcd4j.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${compile.level}</source>
+					<target>${compile.level}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+
+					<fork>true</fork>
+					<meminitial>128m</meminitial>
+					<maxmem>512m</maxmem>
+					<optimize>true</optimize>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
