@@ -1,1 +1,1 @@
-# ectd-sample
+# etcd-sample
