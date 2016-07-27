@@ -6,18 +6,17 @@
 	<artifactId>etcd-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>ectd-sample</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<compile.level>1.7</compile.level>
+		<compile.level>1.8</compile.level>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
 		<junit.version>4.12</junit.version>
-		<etcd4j.version>2.10.0</etcd4j.version>
+		<etcd4j.version>2.12.0</etcd4j.version>
 
-		<maven-compiler-plugin.version>3.5</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 	</properties>
 
 	<dependencies>
