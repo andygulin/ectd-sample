@@ -16,7 +16,7 @@
 		<junit.version>4.12</junit.version>
 		<etcd4j.version>2.12.0</etcd4j.version>
 
-		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -41,11 +41,6 @@
 					<source>${compile.level}</source>
 					<target>${compile.level}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
-
-					<fork>true</fork>
-					<meminitial>128m</meminitial>
-					<maxmem>512m</maxmem>
-					<optimize>true</optimize>
 				</configuration>
 			</plugin>
 		</plugins>
