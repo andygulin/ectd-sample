@@ -1,15 +1,5 @@
 package etcd.sample;
 
-import java.io.IOException;
-import java.net.URI;
-import java.util.concurrent.TimeoutException;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import mousio.client.promises.ResponsePromise;
-import mousio.client.promises.ResponsePromise.IsSimplePromiseResponseHandler;
 import mousio.client.retry.RetryWithTimeout;
 import mousio.etcd4j.EtcdClient;
 import mousio.etcd4j.promises.EtcdResponsePromise;
@@ -17,6 +7,13 @@ import mousio.etcd4j.responses.EtcdAuthenticationException;
 import mousio.etcd4j.responses.EtcdException;
 import mousio.etcd4j.responses.EtcdKeysResponse;
 import mousio.etcd4j.responses.EtcdVersionResponse;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.net.URI;
+import java.util.concurrent.TimeoutException;
 
 public class EtcdTest {
 
@@ -57,14 +54,11 @@ public class EtcdTest {
 	public void promise() throws IOException, EtcdException, EtcdAuthenticationException, TimeoutException {
 		EtcdResponsePromise<EtcdKeysResponse> promise = client.put("key", "helloworld").send();
 		// on change
-		promise.addListener(new IsSimplePromiseResponseHandler<EtcdKeysResponse>() {
-			@Override
-			public void onResponse(ResponsePromise<EtcdKeysResponse> response) {
-				try {
-					printLog(response.get());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		promise.addListener((response) -> {
+			try {
+				printLog(response.get());
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 		System.in.read();
